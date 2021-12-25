@@ -1,4 +1,4 @@
-import { Collection, GuildMember, Role as discordjsRole, Snowflake } from 'discord.js'
+import { CategoryChannel, Collection, GuildMember, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js'
 import { APIGuild } from 'discord-api-types'
 import { APIRole } from 'discord.js/node_modules/discord-api-types'
 
@@ -40,8 +40,52 @@ export interface MutualGuilds {
 }
 
 
-export type GuildSettings = {
+export interface GuildSettings {
     clientMember: GuildMember
     guildConfig: GuildConfig
+    guildRoles: Collection<string, discordjsRole>
+}
+
+
+export interface Reactions {
+    reaction: string
+    roleId: Snowflake
+    mode: string
+}
+
+export interface ReactionRole {
+    _id: string
+    guildId: Snowflake
+    channelId: Snowflake
+    messageId: Snowflake
+    reactions: Reactions[]
+}
+
+export interface ReactionRolePageData {
+    reactionRoles: ReactionRole[]
+    guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>
+    guildRoles: Collection<string, discordjsRole>
+}
+
+export interface ReactionRoleFormValues extends ReactionRoleMessageFormValues, ReactionRoleReactionsFormValues, ReactionRoleSubmitFormValues {}
+export interface ReactionRoleMessageFormValues {
+    channelId: string
+    messageType: 'messageId' | 'lastMessage' | 'embed'
+    messageId: string
+}
+export interface ReactionRoleReactionsFormValues {
+    reactions: Reactions[]
+}
+export interface ReactionRoleSubmitFormValues {
+    buttons: boolean
+}
+
+export interface AutoRoleRole {
+    roleId: Snowflake;
+    time: number;
+}
+
+export interface AutoRolePageData {
+    autoRoles: AutoRoleRole[]
     guildRoles: Collection<string, discordjsRole>
 }
