@@ -1,4 +1,4 @@
-import { CategoryChannel, Collection, GuildMember, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js'
+import { CategoryChannel, Collection, GuildMember, MessageEmbed, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js'
 import { APIGuild } from 'discord-api-types'
 import { APIRole } from 'discord.js/node_modules/discord-api-types'
 
@@ -80,6 +80,7 @@ export interface ReactionRoleSubmitFormValues {
     buttons: boolean
 }
 
+
 export interface AutoRoleRole {
     roleId: Snowflake;
     time: number;
@@ -88,4 +89,23 @@ export interface AutoRoleRole {
 export interface AutoRolePageData {
     autoRoles: AutoRoleRole[]
     guildRoles: Collection<string, discordjsRole>
+}
+
+
+export interface Embed extends MessageEmbed {
+    displayTimestamp: boolean;
+}
+export interface EmbedMessage {
+    _id?: string
+    name: string;
+    guildId: Snowflake;
+    channelId?: Snowflake;
+    messageId?: Snowflake;
+    messageContent?: string;
+    embed: Embed
+}
+
+export interface EmbedsPageData {
+    embeds: EmbedMessage[]
+    guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>
 }
