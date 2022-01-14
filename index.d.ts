@@ -1,6 +1,5 @@
 import { CategoryChannel, Collection, GuildMember, MessageEmbed, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js';
-import { APIGuild } from 'discord-api-types';
-import { APIRole } from 'discord.js/node_modules/discord-api-types';
+import { APIGuild, APIRole } from 'discord-api-types';
 export interface User {
     discordId: Snowflake;
     discordTag: `${string}#${number}`;
@@ -79,7 +78,6 @@ export interface AutoRolePageData {
     guildRoles: Collection<string, discordjsRole>;
 }
 export interface Embed extends MessageEmbed {
-    displayTimestamp: boolean;
 }
 export interface EmbedMessage {
     _id?: string;
