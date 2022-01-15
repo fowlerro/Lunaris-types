@@ -106,3 +106,10 @@ export interface EmbedsPageData {
     embeds: EmbedMessage[]
     guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>
 }
+
+export interface WelcomeMessage {
+    guildId: Snowflake
+    channelId: Snowflake | null
+    status: boolean
+    format: string[]
+}
