@@ -107,9 +107,14 @@ export interface EmbedsPageData {
     guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>
 }
 
+export interface WelcomeMessageFormat {
+    message: string
+    event: 'join' | 'leave'
+}
+
 export interface WelcomeMessage {
     guildId: Snowflake
     channelId: Snowflake | null
     status: boolean
-    format: string[]
+    formats: WelcomeMessageFormat[]
 }
