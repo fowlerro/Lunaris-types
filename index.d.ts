@@ -92,10 +92,14 @@ export interface EmbedsPageData {
     embeds: EmbedMessage[];
     guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>;
 }
+export declare type WelcomeMessageAction = 'join' | 'leave';
 export interface WelcomeMessageFormat {
     message: string;
-    action: 'join' | 'leave';
+    action: WelcomeMessageAction;
 }
+export declare type GroupedWelcomeMessageFormats = {
+    [action in WelcomeMessageAction]: WelcomeMessageFormat[];
+};
 export interface WelcomeMessage {
     guildId: Snowflake;
     channelId: Snowflake | null;
