@@ -100,9 +100,12 @@ export interface WelcomeMessageFormat {
 export declare type GroupedWelcomeMessageFormats = {
     [action in WelcomeMessageAction]: WelcomeMessageFormat[];
 };
+export declare type WelcomeMessageChannels = {
+    [channel in WelcomeMessageAction]: Snowflake;
+};
 export interface WelcomeMessage {
     guildId: Snowflake;
-    channelId: Snowflake | null;
+    channels: WelcomeMessageChannels;
     status: boolean;
     formats: WelcomeMessageFormat[];
 }

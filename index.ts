@@ -107,6 +107,7 @@ export interface EmbedsPageData {
     guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>
 }
 
+
 export type WelcomeMessageAction = 'join' | 'leave'
 
 export interface WelcomeMessageFormat {
@@ -118,9 +119,13 @@ export type GroupedWelcomeMessageFormats = {
     [action in WelcomeMessageAction]: WelcomeMessageFormat[]
 }
 
+export type WelcomeMessageChannels = {
+    [channel in WelcomeMessageAction]: Snowflake
+}
+
 export interface WelcomeMessage {
     guildId: Snowflake
-    channelId: Snowflake | null
+    channels: WelcomeMessageChannels
     status: boolean
     formats: WelcomeMessageFormat[]
 }
