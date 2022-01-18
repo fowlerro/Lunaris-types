@@ -94,7 +94,7 @@ export interface EmbedsPageData {
 }
 export interface WelcomeMessageFormat {
     message: string;
-    event: 'join' | 'leave';
+    action: 'join' | 'leave';
 }
 export interface WelcomeMessage {
     guildId: Snowflake;
