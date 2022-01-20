@@ -26,7 +26,6 @@ interface GuildModules {
 }
 export interface GuildConfig {
     guildId: Snowflake;
-    language: Language;
     modules: GuildModules;
 }
 
