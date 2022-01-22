@@ -72,6 +72,10 @@ export interface AutoRoleRole {
     roleId: Snowflake;
     time: number;
 }
+export interface AutoRole {
+    guildId: Snowflake;
+    roles: AutoRoleRole[];
+}
 export interface AutoRolePageData {
     autoRoles: AutoRoleRole[];
     guildRoles: Collection<string, discordjsRole>;
