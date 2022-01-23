@@ -106,8 +106,15 @@ export interface LevelUpMessage {
     mode: 'off' | 'currentChannel' | 'specificChannel';
     channelId?: Snowflake;
 }
+export interface LevelReward {
+    roleId: Snowflake;
+    level: number;
+    takePreviousRole: boolean;
+}
 export interface LevelConfig {
-    levelUpMessage: LevelUpMessage;
+    guildId: Snowflake;
     multiplier: number;
+    levelUpMessage: LevelUpMessage;
+    rewards: LevelReward[];
 }
 export {};
