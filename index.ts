@@ -130,7 +130,7 @@ export interface LevelUpMessage {
     mode: 'off' | 'currentChannel' | 'specificChannel';
     channelId?: Snowflake;
 }
-export interface LevelModule {
+export interface LevelConfig {
     levelUpMessage: LevelUpMessage;
     multiplier: number
 }
