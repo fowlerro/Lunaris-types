@@ -127,8 +127,9 @@ export interface WelcomeMessage {
 
 
 export interface LevelUpMessage {
-    mode: 'off' | 'currentChannel' | 'specificChannel';
-    channelId?: Snowflake;
+    messageFormat: string | null
+    mode: 'off' | 'currentChannel' | 'specificChannel'
+    channelId?: Snowflake
 }
 
 export interface LevelReward {
