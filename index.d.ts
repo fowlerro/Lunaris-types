@@ -6,23 +6,13 @@ export interface User {
     avatar: string | null;
 }
 export declare type Language = 'pl' | 'en';
-interface LevelUpMessage {
-    mode: 'off' | 'currentChannel' | 'specificChannel';
-    channelId?: Snowflake;
-}
-interface GuildModuleXp {
-    levelUpMessage: LevelUpMessage;
-    multiplier: number;
-}
-interface GuildModuleAutoMod {
-    muteRole?: Snowflake;
-}
 interface GuildModules {
-    autoMod: GuildModuleAutoMod;
-    xp: GuildModuleXp;
+    autoRole: boolean;
+    welcomeMessage: boolean;
 }
 export interface GuildConfig {
     guildId: Snowflake;
+    muteRole: Snowflake;
     modules: GuildModules;
 }
 export interface Role extends APIRole {
@@ -111,5 +101,13 @@ export interface WelcomeMessage {
     channels: WelcomeMessageChannels;
     status: boolean;
     formats: WelcomeMessageFormat[];
+}
+export interface LevelUpMessage {
+    mode: 'off' | 'currentChannel' | 'specificChannel';
+    channelId?: Snowflake;
+}
+export interface LevelModule {
+    levelUpMessage: LevelUpMessage;
+    multiplier: number;
 }
 export {};
