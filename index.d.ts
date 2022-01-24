@@ -103,7 +103,7 @@ export interface WelcomeMessage {
     formats: WelcomeMessageFormat[];
 }
 export interface LevelUpMessage {
-    messageFormat: string | null;
+    messageFormat?: string | null;
     mode: 'off' | 'currentChannel' | 'specificChannel';
     channelId?: Snowflake;
 }
