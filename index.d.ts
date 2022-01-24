@@ -112,10 +112,14 @@ export interface LevelReward {
     level: number;
     takePreviousRole: boolean;
 }
+export interface LevelRewards {
+    text: LevelReward[];
+    voice: LevelReward[];
+}
 export interface LevelConfig {
     guildId: Snowflake;
     multiplier: number;
     levelUpMessage: LevelUpMessage;
-    rewards: LevelReward[];
+    rewards: LevelRewards;
 }
 export {};
