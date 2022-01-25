@@ -133,6 +133,7 @@ export interface LevelUpMessage {
 }
 
 export interface LevelReward {
+    _id?: string,
     roleId: Snowflake
     level: number
     takePreviousRole: boolean
