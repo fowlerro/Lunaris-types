@@ -16,7 +16,6 @@ interface GuildModules {
 }
 export interface GuildConfig {
     guildId: Snowflake;
-    muteRole: Snowflake;
     modules: GuildModules;
 }
 
