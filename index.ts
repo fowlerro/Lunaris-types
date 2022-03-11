@@ -1,150 +1,184 @@
-import { CategoryChannel, Collection, GuildMember, MessageEmbed, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js'
-import { APIGuild, APIRole } from 'discord-api-types'
+import {
+	CategoryChannel,
+	Collection,
+	GuildMember,
+	MessageEmbed,
+	Role as discordjsRole,
+	Snowflake,
+	TextChannel,
+} from 'discord.js';
+import { APIGuild, APIRole } from 'discord-api-types';
 
 export interface User {
-    discordId: Snowflake;
-    discordTag: `${string}#${number}`;
-    avatar: string | null;
+	discordId: Snowflake;
+	discordTag: `${string}#${number}`;
+	avatar: string | null;
 }
 
-export type Language = 'pl' | 'en'
+export type Language = 'pl' | 'en';
 
+interface TextStatistics {
+	level: number;
+	xp: number;
+	totalXp: number;
+	dailyXp: number;
+	cooldown?: boolean;
+}
+
+interface VoiceStatistics extends TextStatistics {
+	timeSpent: number;
+}
+
+export interface ProfileStatistics {
+	text: TextStatistics;
+	voice: VoiceStatistics;
+}
+
+interface ProfileCard {
+	background: number;
+	customBackground?: Buffer;
+	accent: string;
+}
+
+export interface Profile {
+	userId: Snowflake;
+	coins: number;
+	statistics: ProfileStatistics;
+	cardAppearance: ProfileCard;
+}
 
 interface GuildModules {
-    autoRole: boolean
-    welcomeMessage: boolean
+	autoRole: boolean;
+	welcomeMessage: boolean;
 }
 export interface GuildConfig {
-    guildId: Snowflake;
-    modules: GuildModules;
+	guildId: Snowflake;
+	modules: GuildModules;
 }
 
 export interface Role extends APIRole {}
 export interface Guild extends APIGuild {}
 
 export interface MutualGuilds {
-    excluded: APIGuild[]
-    included: APIGuild[]
+	excluded: APIGuild[];
+	included: APIGuild[];
 }
-
 
 export interface GuildSettings {
-    clientMember: GuildMember
-    guildConfig: GuildConfig
-    guildRoles: Collection<string, discordjsRole>
+	clientMember: GuildMember;
+	guildConfig: GuildConfig;
+	guildRoles: Collection<string, discordjsRole>;
 }
 
-
 export interface Reactions {
-    reaction: string
-    roleId: Snowflake
-    mode: string
+	reaction: string;
+	roleId: Snowflake;
+	mode: string;
 }
 
 export interface ReactionRole {
-    _id: string
-    guildId: Snowflake
-    channelId: Snowflake
-    messageId: Snowflake
-    reactions: Reactions[]
+	_id: string;
+	guildId: Snowflake;
+	channelId: Snowflake;
+	messageId: Snowflake;
+	reactions: Reactions[];
 }
 
 export interface ReactionRolePageData {
-    reactionRoles: ReactionRole[]
-    guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>
-    guildRoles: Collection<string, discordjsRole>
+	reactionRoles: ReactionRole[];
+	guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>;
+	guildRoles: Collection<string, discordjsRole>;
 }
 
-export interface ReactionRoleFormValues extends ReactionRoleMessageFormValues, ReactionRoleReactionsFormValues, ReactionRoleSubmitFormValues {}
+export interface ReactionRoleFormValues
+	extends ReactionRoleMessageFormValues,
+		ReactionRoleReactionsFormValues,
+		ReactionRoleSubmitFormValues {}
 export interface ReactionRoleMessageFormValues {
-    channelId: string
-    messageType: 'messageId' | 'lastMessage' | 'embed'
-    messageId: string
+	channelId: string;
+	messageType: 'messageId' | 'lastMessage' | 'embed';
+	messageId: string;
 }
 export interface ReactionRoleReactionsFormValues {
-    reactions: Reactions[]
+	reactions: Reactions[];
 }
 export interface ReactionRoleSubmitFormValues {
-    buttons: boolean
+	buttons: boolean;
 }
 
-
 export interface AutoRoleRole {
-    roleId: Snowflake;
-    time: number;
+	roleId: Snowflake;
+	time: number;
 }
 
 export interface AutoRole {
-    guildId: Snowflake
-    roles: AutoRoleRole[]
+	guildId: Snowflake;
+	roles: AutoRoleRole[];
 }
 
 export interface AutoRolePageData {
-    autoRoles: AutoRoleRole[]
-    guildRoles: Collection<string, discordjsRole>
+	autoRoles: AutoRoleRole[];
+	guildRoles: Collection<string, discordjsRole>;
 }
-
 
 export interface Embed extends MessageEmbed {}
 export interface EmbedMessage {
-    _id?: string
-    name: string;
-    guildId: Snowflake;
-    channelId?: Snowflake;
-    messageId?: Snowflake;
-    messageContent?: string;
-    embed: Embed
+	_id?: string;
+	name: string;
+	guildId: Snowflake;
+	channelId?: Snowflake;
+	messageId?: Snowflake;
+	messageContent?: string;
+	embed: Embed;
 }
 
 export interface EmbedsPageData {
-    embeds: EmbedMessage[]
-    guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>
+	embeds: EmbedMessage[];
+	guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>;
 }
 
-
-export type WelcomeMessageAction = 'join' | 'leave'
+export type WelcomeMessageAction = 'join' | 'leave';
 
 export interface WelcomeMessageFormat {
-    message: string
-    action: WelcomeMessageAction
+	message: string;
+	action: WelcomeMessageAction;
 }
 
 export type GroupedWelcomeMessageFormats = {
-    [action in WelcomeMessageAction]: WelcomeMessageFormat[]
-}
+	[action in WelcomeMessageAction]: WelcomeMessageFormat[];
+};
 
 export type WelcomeMessageChannels = {
-    [channel in WelcomeMessageAction]: Snowflake
-}
+	[channel in WelcomeMessageAction]: Snowflake;
+};
 
 export interface WelcomeMessage {
-    guildId: Snowflake
-    channels: WelcomeMessageChannels
-    status: boolean
-    formats: WelcomeMessageFormat[]
+	guildId: Snowflake;
+	channels: WelcomeMessageChannels;
+	status: boolean;
+	formats: WelcomeMessageFormat[];
 }
 
-
 export interface LevelUpMessage {
-    messageFormat?: string | null
-    mode: 'off' | 'currentChannel' | 'specificChannel'
-    channelId?: Snowflake
+	messageFormat?: string | null;
+	mode: 'off' | 'currentChannel' | 'specificChannel';
+	channelId?: Snowflake;
 }
 
 export interface LevelReward {
-    _id?: string,
-    roleId: Snowflake
-    level: number
-    takePreviousRole: boolean
+	_id?: string;
+	roleId: Snowflake;
+	level: number;
+	takePreviousRole: boolean;
 }
 
 export interface LevelRewards {
-    text: LevelReward[]
-    voice: LevelReward[]
+	text: LevelReward[];
+	voice: LevelReward[];
 }
 export interface LevelConfig {
-    guildId: Snowflake
-    multiplier: number
-    levelUpMessage: LevelUpMessage
-    rewards: LevelRewards
+	guildId: Snowflake;
+	multiplier: number;
+	levelUpMessage: LevelUpMessage;
+	rewards: LevelRewards;
 }

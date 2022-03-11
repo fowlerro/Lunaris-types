@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { CategoryChannel, Collection, GuildMember, MessageEmbed, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js';
 import { APIGuild, APIRole } from 'discord-api-types';
 export interface User {
@@ -6,13 +7,37 @@ export interface User {
     avatar: string | null;
 }
 export declare type Language = 'pl' | 'en';
+interface TextStatistics {
+    level: number;
+    xp: number;
+    totalXp: number;
+    dailyXp: number;
+    cooldown?: boolean;
+}
+interface VoiceStatistics extends TextStatistics {
+    timeSpent: number;
+}
+export interface ProfileStatistics {
+    text: TextStatistics;
+    voice: VoiceStatistics;
+}
+interface ProfileCard {
+    background: number;
+    customBackground?: Buffer;
+    accent: string;
+}
+export interface Profile {
+    userId: Snowflake;
+    coins: number;
+    statistics: ProfileStatistics;
+    cardAppearance: ProfileCard;
+}
 interface GuildModules {
     autoRole: boolean;
     welcomeMessage: boolean;
 }
 export interface GuildConfig {
     guildId: Snowflake;
-    muteRole: Snowflake;
     modules: GuildModules;
 }
 export interface Role extends APIRole {
