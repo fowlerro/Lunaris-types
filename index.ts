@@ -47,6 +47,17 @@ export interface Profile {
 	cardAppearance: ProfileCard;
 }
 
+export interface ProfileWithRank extends Profile {
+	xpNeeded: {
+		text: number;
+		voice: number;
+	};
+	rank: {
+		text: number;
+		voice: number;
+	};
+}
+
 interface GuildModules {
 	autoRole: boolean;
 	welcomeMessage: boolean;
