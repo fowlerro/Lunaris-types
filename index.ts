@@ -3,11 +3,12 @@ import {
 	Collection,
 	GuildMember,
 	MessageEmbed,
+	OAuth2Guild,
 	Role as discordjsRole,
 	Snowflake,
 	TextChannel,
 } from 'discord.js';
-import { APIGuild, APIRole } from 'discord-api-types';
+import { APIRole } from 'discord-api-types';
 
 export interface User {
 	discordId: Snowflake;
@@ -68,11 +69,11 @@ export interface GuildConfig {
 }
 
 export interface Role extends APIRole {}
-export interface Guild extends APIGuild {}
+export interface Guild extends OAuth2Guild {}
 
 export interface MutualGuilds {
-	excluded: APIGuild[];
-	included: APIGuild[];
+	excluded: OAuth2Guild[];
+	included: OAuth2Guild[];
 }
 
 export interface GuildSettings {
