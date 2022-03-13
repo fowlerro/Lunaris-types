@@ -76,6 +76,20 @@ export interface MutualGuilds {
 	included: OAuth2Guild[];
 }
 
+export interface GuildStats {
+	name: string;
+	icon: {
+		hash: string | null;
+		acronym: string;
+	};
+	stats: {
+		members: number;
+		bots: number;
+		channels: number;
+		voiceChannels: number;
+	};
+}
+
 export interface GuildSettings {
 	clientMember: GuildMember;
 	guildConfig: GuildConfig;
