@@ -54,6 +54,16 @@ export interface Role extends APIRole {
 }
 export interface Guild extends OAuth2Guild {
 }
+export interface Ban {
+    user: {
+        id: Snowflake;
+        username: string;
+        avatar?: string;
+        discriminator: string;
+        public_flags: number;
+    };
+    reason: string | null;
+}
 export interface MutualGuilds {
     excluded: OAuth2Guild[];
     included: OAuth2Guild[];
