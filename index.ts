@@ -101,7 +101,7 @@ export interface GuildProfileWarn {
 export interface Warns {
 	userId: Snowflake;
 	warns: GuildProfileWarn & {
-		executor: {
+		executor?: {
 			id: Snowflake;
 			username: string;
 			avatar?: string;
