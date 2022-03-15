@@ -82,7 +82,7 @@ export interface APIBan {
 	reason: string | null;
 }
 export interface Ban extends APIBan {
-	executor: {
+	executor?: {
 		id: Snowflake;
 		username: string;
 		avatar?: string;
