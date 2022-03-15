@@ -100,14 +100,15 @@ export interface GuildProfileWarn {
 
 export interface Warns {
 	userId: Snowflake;
-	warns: GuildProfileWarn & {
-		executor?: {
-			id: Snowflake;
-			username: string;
-			avatar?: string;
-			discirminator: string;
-		};
-	};
+	warns: GuildProfileWarn &
+		{
+			executor?: {
+				id: Snowflake;
+				username: string;
+				avatar?: string;
+				discirminator: string;
+			};
+		}[];
 }
 
 export interface MutualGuilds {
