@@ -70,7 +70,8 @@ export interface GuildConfig {
 
 export interface Role extends APIRole {}
 export interface Guild extends OAuth2Guild {}
-export interface Ban {
+
+export interface APIBan {
 	user: {
 		id: Snowflake;
 		username: string;
@@ -79,6 +80,15 @@ export interface Ban {
 		public_flags: number;
 	};
 	reason: string | null;
+}
+export interface Ban extends APIBan {
+	executor: {
+		id: Snowflake;
+		username: string;
+		avatar?: string;
+		discriminator: string;
+	};
+	time?: number;
 }
 
 export interface MutualGuilds {
