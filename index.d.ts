@@ -73,6 +73,23 @@ export interface Ban extends APIBan {
     };
     time?: number;
 }
+export interface GuildProfileWarn {
+    _id: string;
+    executorId: Snowflake;
+    reason: string | null;
+    date: number;
+}
+export interface Warns {
+    userId: Snowflake;
+    warns: GuildProfileWarn & {
+        executor: {
+            id: Snowflake;
+            username: string;
+            avatar?: string;
+            discirminator: string;
+        };
+    };
+}
 export interface MutualGuilds {
     excluded: OAuth2Guild[];
     included: OAuth2Guild[];
