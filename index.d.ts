@@ -80,15 +80,23 @@ export interface GuildProfileWarn {
     date: number;
 }
 export interface Warns {
-    userId: Snowflake;
-    warns: (GuildProfileWarn & {
-        executor?: {
+    user: {
+        id: Snowflake;
+        username: string;
+        discriminator: string;
+        avatar?: string;
+    };
+    warns: {
+        _id: GuildProfileWarn['_id'];
+        date: GuildProfileWarn['date'];
+        reason: GuildProfileWarn['reason'];
+        executor: {
             id: Snowflake;
             username: string;
+            discriminator: string;
             avatar?: string;
-            discirminator: string;
         };
-    })[];
+    }[];
 }
 export interface MutualGuilds {
     excluded: OAuth2Guild[];
