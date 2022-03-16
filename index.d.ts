@@ -79,7 +79,7 @@ export interface GuildProfileWarn {
     reason: string | null;
     date: number;
 }
-export interface Warns {
+export interface WarnedUser {
     user: {
         id: Snowflake;
         username: string;
