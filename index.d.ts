@@ -150,17 +150,17 @@ export interface ReactionRoleReactionsFormValues {
 export interface ReactionRoleSubmitFormValues {
     buttons: boolean;
 }
-export interface AutoRoleRole {
+export interface AutoRole {
     roleId: Snowflake;
     time: number;
 }
-export interface AutoRole {
+export interface AutoRoleConfig {
     guildId: Snowflake;
-    roles: AutoRoleRole[];
+    roles: AutoRole[];
 }
 export interface AutoRolePageData {
-    autoRoles: AutoRoleRole[];
-    guildRoles: Collection<string, discordjsRole>;
+    status: boolean;
+    autoRoles: AutoRole[];
 }
 export interface Embed extends MessageEmbed {
 }
