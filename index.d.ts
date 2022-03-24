@@ -56,6 +56,10 @@ export interface Role extends APIRole {
 }
 export interface Guild extends OAuth2Guild {
 }
+export interface GuildChannels {
+    text: TextChannel[];
+    category: CategoryChannel[];
+}
 export interface APIBan {
     user: {
         id: Snowflake;

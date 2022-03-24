@@ -3,6 +3,7 @@ import {
 	Collection,
 	GuildMember,
 	MessageEmbed,
+	NonThreadGuildBasedChannel,
 	OAuth2Guild,
 	Role as discordjsRole,
 	Snowflake,
@@ -72,6 +73,11 @@ export interface GuildConfig {
 
 export interface Role extends APIRole {}
 export interface Guild extends OAuth2Guild {}
+
+export interface GuildChannels {
+	text: TextChannel[];
+	category: CategoryChannel[];
+}
 
 export interface APIBan {
 	user: {
