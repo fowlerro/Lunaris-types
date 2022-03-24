@@ -62,6 +62,8 @@ export interface ProfileWithRank extends Profile {
 interface GuildModules {
 	autoRole: boolean;
 	welcomeMessage: boolean;
+	serverLogs: boolean;
+	levels: boolean;
 }
 export interface GuildConfig {
 	guildId: Snowflake;
