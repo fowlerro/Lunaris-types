@@ -162,6 +162,32 @@ export interface AutoRolePageData {
     status: boolean;
     autoRoles: AutoRole[];
 }
+export declare type GuildLogTypes = {
+    messages: 'edit' | 'delete' | 'purge' | 'pin' | 'unpin';
+    emojis: 'edit' | 'delete' | 'create';
+    roles: 'edit' | 'delete' | 'create' | 'add' | 'remove';
+    channels: 'edit' | 'delete' | 'create';
+    threads: 'edit' | 'delete' | 'create';
+    invites: 'create' | 'delete';
+    members: 'join' | 'leave' | 'nicknameChange' | 'warn' | 'unwarn' | 'unwarnAll' | 'kick' | 'timeout' | 'timeoutRemove' | 'ban' | 'unban';
+    server: 'unwarnAll';
+};
+export declare type GuildLogsCategory<Category extends keyof GuildLogTypes> = {
+    channelId?: Snowflake;
+    logs?: {
+        [LogType in GuildLogTypes[Category]]?: boolean;
+    };
+};
+export declare type GuildLogs = {
+    guildId: Snowflake;
+    logs?: {
+        [Category in keyof GuildLogTypes]?: GuildLogsCategory<Category>;
+    };
+};
+export interface GuildLogsPageData {
+    status: boolean;
+    serverLogs: GuildLogs['logs'];
+}
 export interface Embed extends MessageEmbed {
 }
 export interface EmbedMessage {
