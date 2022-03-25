@@ -226,15 +226,15 @@ export type GuildLogTypes = {
 
 export type GuildLogsCategory<Category extends keyof GuildLogTypes> = {
 	channelId?: Snowflake;
-	logs?: {
-		[LogType in GuildLogTypes[Category]]?: boolean;
+	logs: {
+		[LogType in GuildLogTypes[Category]]: boolean;
 	};
 };
 
 export type GuildLogs = {
 	guildId: Snowflake;
-	logs?: {
-		[Category in keyof GuildLogTypes]?: GuildLogsCategory<Category>;
+	logs: {
+		[Category in keyof GuildLogTypes]: GuildLogsCategory<Category>;
 	};
 };
 

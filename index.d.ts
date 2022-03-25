@@ -180,14 +180,14 @@ export declare type GuildLogTypes = {
 };
 export declare type GuildLogsCategory<Category extends keyof GuildLogTypes> = {
     channelId?: Snowflake;
-    logs?: {
-        [LogType in GuildLogTypes[Category]]?: boolean;
+    logs: {
+        [LogType in GuildLogTypes[Category]]: boolean;
     };
 };
 export declare type GuildLogs = {
     guildId: Snowflake;
-    logs?: {
-        [Category in keyof GuildLogTypes]?: GuildLogsCategory<Category>;
+    logs: {
+        [Category in keyof GuildLogTypes]: GuildLogsCategory<Category>;
     };
 };
 export interface GuildLogsPageData {
