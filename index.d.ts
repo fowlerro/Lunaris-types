@@ -194,6 +194,10 @@ export interface GuildLogsPageData {
     status: boolean;
     serverLogs: GuildLogs['logs'];
 }
+export interface LevelConfigPageData {
+    status: boolean;
+    levelConfig: LevelConfig;
+}
 export interface Embed extends MessageEmbed {
 }
 export interface EmbedMessage {
