@@ -249,7 +249,9 @@ export interface LevelConfigPageData {
 	levelConfig: LevelConfig;
 }
 
-export interface Embed extends MessageEmbedOptions {}
+export interface Embed extends MessageEmbedOptions {
+	hexColor: `#${number}`;
+}
 export interface EmbedMessage {
 	_id?: string;
 	name: string;
