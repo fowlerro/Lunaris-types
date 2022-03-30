@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { CategoryChannel, Collection, GuildMember, MessageEmbed, OAuth2Guild, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js';
+import { CategoryChannel, Collection, GuildMember, MessageEmbedOptions, OAuth2Guild, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js';
 import { APIRole } from 'discord-api-types';
 export interface User {
     discordId: Snowflake;
@@ -198,7 +198,7 @@ export interface LevelConfigPageData {
     status: boolean;
     levelConfig: LevelConfig;
 }
-export interface Embed extends MessageEmbed {
+export interface Embed extends MessageEmbedOptions {
 }
 export interface EmbedMessage {
     _id?: string;
@@ -208,10 +208,6 @@ export interface EmbedMessage {
     messageId?: Snowflake;
     messageContent?: string;
     embed: Embed;
-}
-export interface EmbedsPageData {
-    embeds: EmbedMessage[];
-    guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>;
 }
 export declare type WelcomeMessageAction = 'join' | 'leave';
 export interface WelcomeMessageFormat {

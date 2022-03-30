@@ -3,6 +3,7 @@ import {
 	Collection,
 	GuildMember,
 	MessageEmbed,
+	MessageEmbedOptions,
 	NonThreadGuildBasedChannel,
 	OAuth2Guild,
 	Role as discordjsRole,
@@ -248,7 +249,7 @@ export interface LevelConfigPageData {
 	levelConfig: LevelConfig;
 }
 
-export interface Embed extends MessageEmbed {}
+export interface Embed extends MessageEmbedOptions {}
 export interface EmbedMessage {
 	_id?: string;
 	name: string;
@@ -257,11 +258,6 @@ export interface EmbedMessage {
 	messageId?: Snowflake;
 	messageContent?: string;
 	embed: Embed;
-}
-
-export interface EmbedsPageData {
-	embeds: EmbedMessage[];
-	guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>;
 }
 
 export type WelcomeMessageAction = 'join' | 'leave';
