@@ -33,6 +33,7 @@ export interface Profile {
     cardAppearance: ProfileCard;
 }
 export interface ProfileWithRank extends Profile {
+    banner: string;
     xpNeeded: {
         text: number;
         voice: number;

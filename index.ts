@@ -49,6 +49,7 @@ export interface Profile {
 }
 
 export interface ProfileWithRank extends Profile {
+	banner: string;
 	xpNeeded: {
 		text: number;
 		voice: number;
