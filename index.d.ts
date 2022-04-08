@@ -1,6 +1,7 @@
 /// <reference types="node" />
-import { CategoryChannel, Collection, GuildMember, MessageEmbedOptions, OAuth2Guild, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js';
+import { CategoryChannel, Collection, GuildMember, GuildPreview, MessageEmbedOptions, OAuth2Guild, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js';
 import { APIRole } from 'discord-api-types';
+export { GuildPreview };
 export interface User {
     discordId: Snowflake;
     discordTag: `${string}#${number}`;
@@ -248,4 +249,3 @@ export interface LevelConfig {
     levelUpMessage: LevelUpMessage;
     rewards: LevelRewards;
 }
-export {};

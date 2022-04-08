@@ -2,15 +2,16 @@ import {
 	CategoryChannel,
 	Collection,
 	GuildMember,
-	MessageEmbed,
+	GuildPreview,
 	MessageEmbedOptions,
-	NonThreadGuildBasedChannel,
 	OAuth2Guild,
 	Role as discordjsRole,
 	Snowflake,
 	TextChannel,
 } from 'discord.js';
 import { APIRole } from 'discord-api-types';
+
+export { GuildPreview };
 
 export interface User {
 	discordId: Snowflake;
