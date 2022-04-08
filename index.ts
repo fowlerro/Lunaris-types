@@ -14,6 +14,7 @@ export interface User {
 	discordId: Snowflake;
 	discordTag: `${string}#${number}`;
 	avatar: string | null;
+	banner: string | null;
 }
 
 export type Language = 'pl' | 'en';
@@ -49,7 +50,6 @@ export interface Profile {
 }
 
 export interface ProfileWithRank extends Profile {
-	banner: string | null;
 	xpNeeded: {
 		text: number;
 		voice: number;
