@@ -130,7 +130,7 @@ export interface MutualGuilds {
 	included: OAuth2Guild[];
 }
 
-interface GuildInfo {
+export interface GuildInfo {
 	id: Snowflake;
 	name: string;
 	description: string | null;

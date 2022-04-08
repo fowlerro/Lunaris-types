@@ -108,6 +108,17 @@ export interface MutualGuilds {
     excluded: OAuth2Guild[];
     included: OAuth2Guild[];
 }
+export interface GuildInfo {
+    id: Snowflake;
+    name: string;
+    description: string | null;
+    acronym: string;
+    icon: string | null;
+    banner: string | null;
+    createdAt: Date;
+    createdTimestamp: number;
+    ownerId: Snowflake;
+}
 export interface GuildStats {
     name: string;
     icon: {
