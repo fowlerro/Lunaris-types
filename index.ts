@@ -2,7 +2,6 @@ import {
 	CategoryChannel,
 	Collection,
 	GuildMember,
-	GuildPreview,
 	MessageEmbedOptions,
 	OAuth2Guild,
 	Role as discordjsRole,
@@ -10,8 +9,6 @@ import {
 	TextChannel,
 } from 'discord.js';
 import { APIRole } from 'discord-api-types';
-
-export { GuildPreview };
 
 export interface User {
 	discordId: Snowflake;
@@ -131,6 +128,18 @@ export interface WarnedUser {
 export interface MutualGuilds {
 	excluded: OAuth2Guild[];
 	included: OAuth2Guild[];
+}
+
+interface GuildInfo {
+	id: Snowflake;
+	name: string;
+	description: string | null;
+	acronym: string;
+	icon: string | null;
+	banner: string | null;
+	createdAt: Date;
+	createdTimestamp: number;
+	ownerId: Snowflake;
 }
 
 export interface GuildStats {
