@@ -71,9 +71,6 @@ export interface GuildConfig {
 	modules: GuildModules;
 }
 
-export interface Role extends APIRole {}
-export interface Guild extends OAuth2Guild {}
-
 export interface GuildChannels {
 	text: TextChannel[];
 	category: CategoryChannel[];
@@ -318,3 +315,5 @@ export interface LevelConfig {
 	levelUpMessage: LevelUpMessage;
 	rewards: LevelRewards;
 }
+
+export type { APIRole as Role, OAuth2Guild as Guild };
