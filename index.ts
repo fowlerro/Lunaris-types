@@ -160,42 +160,6 @@ export interface GuildSettings {
 	guildRoles: Collection<string, discordjsRole>;
 }
 
-export interface Reactions {
-	reaction: string;
-	roleId: Snowflake;
-	mode: string;
-}
-
-export interface ReactionRole {
-	_id: string;
-	guildId: Snowflake;
-	channelId: Snowflake;
-	messageId: Snowflake;
-	reactions: Reactions[];
-}
-
-export interface ReactionRolePageData {
-	reactionRoles: ReactionRole[];
-	guildChannels: Collection<Snowflake, TextChannel | CategoryChannel>;
-	guildRoles: Collection<string, discordjsRole>;
-}
-
-export interface ReactionRoleFormValues
-	extends ReactionRoleMessageFormValues,
-		ReactionRoleReactionsFormValues,
-		ReactionRoleSubmitFormValues {}
-export interface ReactionRoleMessageFormValues {
-	channelId: string;
-	messageType: 'messageId' | 'lastMessage' | 'embed';
-	messageId: string;
-}
-export interface ReactionRoleReactionsFormValues {
-	reactions: Reactions[];
-}
-export interface ReactionRoleSubmitFormValues {
-	buttons: boolean;
-}
-
 export interface AutoRole {
 	roleId: Snowflake;
 	time: number;
@@ -314,6 +278,29 @@ export interface LevelConfig {
 	multiplier: number;
 	levelUpMessage: LevelUpMessage;
 	rewards: LevelRewards;
+}
+
+export type InteractiveRoleType = 'reactions' | 'buttons' | 'select';
+export type InteractiveRoleAction = 'add' | 'remove' | 'toggle';
+export type InteractiveRoleStyle = 'PRIMARY' | 'SECONDARY' | 'SUCCESS' | 'DANGER';
+
+export interface InteractiveRoleItem {
+	_id?: string;
+	label?: string;
+	description?: string;
+	icon?: string;
+	style?: InteractiveRoleStyle;
+	roleId: Snowflake;
+	action?: InteractiveRoleAction;
+}
+
+export interface InteractiveRolesType {
+	guildId: Snowflake;
+	channelId: Snowflake;
+	messageId: Snowflake;
+	type: InteractiveRoleType;
+	placeholder?: string;
+	roles: InteractiveRoleItem[];
 }
 
 export type { APIRole as Role, OAuth2Guild as Guild };
