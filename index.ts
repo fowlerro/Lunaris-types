@@ -295,6 +295,7 @@ export interface InteractiveRoleItem {
 }
 
 export interface InteractiveRolesType {
+	_id?: string;
 	guildId: Snowflake;
 	channelId: Snowflake;
 	messageId: Snowflake;

@@ -239,6 +239,7 @@ export interface InteractiveRoleItem {
     action?: InteractiveRoleAction;
 }
 export interface InteractiveRolesType {
+    _id?: string;
     guildId: Snowflake;
     channelId: Snowflake;
     messageId: Snowflake;
