@@ -248,4 +248,9 @@ export interface InteractiveRolesType {
     placeholder?: string;
     roles: InteractiveRoleItem[];
 }
+export interface GuildEmoji {
+    id: string;
+    name: string;
+    animated: boolean;
+}
 export type { APIRole as Role, OAuth2Guild as Guild };
