@@ -300,6 +300,7 @@ export interface InteractiveRolesType {
 	guildId: Snowflake;
 	channelId: Snowflake;
 	messageId: Snowflake;
+	embedId?: string;
 	type: InteractiveRoleType;
 	placeholder?: string;
 	roles: InteractiveRoleItem[];
