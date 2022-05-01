@@ -125,6 +125,30 @@ export interface GuildStats {
     roles: number;
     emojis: number;
 }
+export interface GuildOverviewModules {
+    autoRoles: {
+        status: boolean;
+        amount: number;
+    };
+    levels: {
+        status: boolean;
+        text: {
+            amount: number;
+        };
+        voice: {
+            amount: number;
+        };
+    };
+    interactiveRoles: {
+        amount: number;
+    };
+    embeds: {
+        amount: number;
+    };
+    serverLogs: {
+        status: boolean;
+    };
+}
 export interface GuildSettings {
     clientMember: GuildMember;
     guildConfig: GuildConfig;
