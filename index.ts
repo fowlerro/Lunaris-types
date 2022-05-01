@@ -141,17 +141,13 @@ export interface GuildInfo {
 }
 
 export interface GuildStats {
-	name: string;
-	icon: {
-		hash: string | null;
-		acronym: string;
-	};
-	stats: {
-		members: number;
-		bots: number;
-		channels: number;
-		voiceChannels: number;
-	};
+	members: number;
+	bots: number;
+	bans: number;
+	channels: number;
+	voiceChannels: number;
+	roles: number;
+	emojis: number;
 }
 
 export interface GuildSettings {
