@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { CategoryChannel, Collection, GuildMember, MessageEmbedOptions, OAuth2Guild, Role as discordjsRole, Snowflake, TextChannel } from 'discord.js';
-import { APIRole } from 'discord-api-types';
+import { APIRole } from 'discord-api-types/v10';
 export interface User {
     discordId: Snowflake;
     discordTag: `${string}#${number}`;
@@ -278,4 +278,4 @@ export interface GuildEmojis {
         animated: boolean;
     }[];
 }
-export type { APIRole as Role, OAuth2Guild as Guild };
+export type { APIRole as Role, OAuth2Guild as Guild, discordjsRole };

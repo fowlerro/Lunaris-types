@@ -8,7 +8,7 @@ import {
 	Snowflake,
 	TextChannel,
 } from 'discord.js';
-import { APIRole } from 'discord-api-types';
+import { APIRole } from 'discord-api-types/v10';
 
 export interface User {
 	discordId: Snowflake;
@@ -337,4 +337,4 @@ export interface GuildEmojis {
 	}[];
 }
 
-export type { APIRole as Role, OAuth2Guild as Guild };
+export type { APIRole as Role, OAuth2Guild as Guild, discordjsRole };
